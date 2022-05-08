@@ -14,10 +14,13 @@ class HEXAGONGRID_API AHexGrid : public AActor
 {
 	GENERATED_BODY()
 
-	int32 MapRadius = 5;
+	int32 MapRadius = 2;
 
-	
+
 public:
+	UPROPERTY(EditAnywhere, Category="Hex")
+	TSubclassOf<AHex> Hex;
+	
 	// Sets default values for this actor's properties
 	TSet<AHex*> Map;
 

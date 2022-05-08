@@ -36,7 +36,7 @@ void AHexGrid::CreateHexagonMap()
 		
 		for (int r = R1; r <= R2; r++)
 		{
-			AHex* hex = GetWorld()->SpawnActor<AHex>();
+			AHex* hex = GetWorld()->SpawnActor<AHex>(Hex);
 			hex->InitializeHex(q, r, -q-r);
 			Map.Add(hex);
 		}
@@ -45,10 +45,9 @@ void AHexGrid::CreateHexagonMap()
 
 void AHexGrid::LogHexData()
 {
-	for (const AHex* Hex : Map)
+	for (const AHex* HexItem : Map)
 	{
-		UE_LOG(LogTemp, Display, TEXT("Actor name & Cube co-ordinates: %s"), *Hex->GetName());
-		UE_LOG(LogTemp, Display, TEXT("Cube co-ordinates: %s"), *Hex->PrintHexCoordinates());
+		UE_LOG(LogTemp, Display, TEXT("Actor name & Cube co-ordinates: %s %s"), *HexItem->GetName(), *HexItem->PrintHexCoordinates());
 	}
 }
 

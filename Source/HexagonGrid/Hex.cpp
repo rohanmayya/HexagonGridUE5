@@ -32,7 +32,7 @@ void AHex::InitializeHex(int32 q, int32 r, int32 s)
 
 FString AHex::PrintHexCoordinates() const
 {
-	return "Q R S";
+	return FString::Printf(TEXT("(%d, %d, %d)"), Q, R, S);
 }
 
 

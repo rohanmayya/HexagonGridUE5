@@ -10,8 +10,14 @@ UCLASS()
 class HEXAGONGRID_API AHex : public AActor
 {
 	GENERATED_BODY()
+
+
+public:
+	UPROPERTY(BlueprintReadWrite)
 	int32 Q;
+	UPROPERTY(BlueprintReadWrite)
 	int32 R;
+	UPROPERTY(BlueprintReadWrite)
 	int32 S;
 	
 public:
