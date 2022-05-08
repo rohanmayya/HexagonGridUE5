@@ -36,9 +36,18 @@ void AHexGrid::CreateHexagonMap()
 		
 		for (int r = R1; r <= R2; r++)
 		{
-			AHex* hex = GetWorld()->SpawnActor<AHex>(Hex);
+			const float LocationX = -q*XOffset + static_cast<float>(r * 85);
+			const float LocationY = static_cast<float>(q*100) + YOffset*q;
+			
+			FVector Location = FVector(LocationX, LocationY, 10.f);
+			FRotator Rotation = FRotator(0.f, 0.f, 0.f);
+			FTransform Transform = FTransform(Rotation, Location);
+			
+			AHex* hex = GetWorld()->SpawnActorDeferred<AHex>(Hex, Transform);
 			hex->InitializeHex(q, r, -q-r);
 			Map.Add(hex);
+
+			hex->FinishSpawning(Transform);
 		}
 	}
 }

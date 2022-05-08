@@ -15,7 +15,8 @@ class HEXAGONGRID_API AHexGrid : public AActor
 	GENERATED_BODY()
 
 	int32 MapRadius = 2;
-
+	float XOffset = -42.f;
+	float YOffset = -25.f;
 
 public:
 	UPROPERTY(EditAnywhere, Category="Hex")
